@@ -1,6 +1,6 @@
 ## Payment System
 
-### this payment system is consisted from following modules :
+### this payment system is consisted of rhe following modules :
 1. Payment Service : this service capture payment events
 2. User Service: this service going to keep user (buyer,merchant) data
 3. Authentication Service: this service will manage user authentication and authorization
