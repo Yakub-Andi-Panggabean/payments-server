@@ -33,12 +33,15 @@
     </dependencies>
 
     <modules>
-        <module>order</module>
+        <module>auth</module>
         <module>payment</module>
         <module>ledger</module>
         <module>wallet</module>
         <module>user</module>
         <module>risk</module>
+        <module>discovery</module>
+        <module>gateway</module>
+
     </modules>
 
 </project>
