@@ -1,0 +1,15 @@
+*/nb-configuration.xml
+*/target/
+*/.classpath
+*/.project
+*/.settings/
+.settings/
+.project
+.idea/*
+*.iml
+.DS_Store
+*/.idea
+/logs/
+.vscode/
+/target
+/lib
