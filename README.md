@@ -6,7 +6,7 @@
 
 
 
-### this payment system is consisted of the following services :
+### This payment system is consisted of the following services :
 1. Payment Service : this service capture payment events
 2. User Service: this service going to keep user (buyer,merchant) data
 3. Authentication Service: this service will manage user authentication and authorization
@@ -64,7 +64,12 @@ This service has the following apis:
 This service has the following apis:
 - POST /{version}/risk
   This endpoint for getting user balance
+  
+### Notification Service
+This service has the following apis:
+- POST /{version}/notification/{notification_type}
 
+ 
 ### Discovery Service
   Will use Eureka from spring cloud stack for microservice discovery
 
