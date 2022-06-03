@@ -6,15 +6,16 @@
 
 
 
-### this payment system is consisted of rhe following modules :
+### this payment system is consisted of the following services :
 1. Payment Service : this service capture payment events
 2. User Service: this service going to keep user (buyer,merchant) data
 3. Authentication Service: this service will manage user authentication and authorization
 4. Ledger Service: this service will capture fund movement (debit, credit)
 5. Wallet Service: this service will handle user balance
 6. Risk Service: this service going to handle risk check for each payment attempt
-7. Discovery Service: this is discovery server which will contains all informations regarding all services instances
-8. Gateway Service: this is going to be microservice api gateway
+7. Notification Service: this service going to handle any payment notification related things like push notification, sms, email
+8. Discovery Service: this is discovery server which will contains all informations regarding all services instances
+9. Gateway Service: this is going to be microservice api gateway
 
 
 ### Payment service design
