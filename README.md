@@ -1,5 +1,11 @@
 ## Payment System
 
+### High level diagram
+
+![payment-system drawio](https://user-images.githubusercontent.com/5902646/171903906-57e173b2-fddd-4da0-98e4-c04b2611d211.png)
+
+
+
 ### this payment system is consisted of rhe following modules :
 1. Payment Service : this service capture payment events
 2. User Service: this service going to keep user (buyer,merchant) data
