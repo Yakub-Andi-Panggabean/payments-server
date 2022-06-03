@@ -2,8 +2,7 @@
 
 ### High level diagram
 
-![payment-system drawio](https://user-images.githubusercontent.com/5902646/171903906-57e173b2-fddd-4da0-98e4-c04b2611d211.png)
-
+![payment-system drawio (1)](https://user-images.githubusercontent.com/5902646/171908247-d2ad108f-a825-4cdf-b0b0-ea2a0b66e7ef.png)
 
 
 ### This payment system is consisted of the following services :
