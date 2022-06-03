@@ -39,6 +39,7 @@
         <module>wallet</module>
         <module>user</module>
         <module>risk</module>
+        <module>notification</module>
         <module>discovery</module>
         <module>gateway</module>
 
