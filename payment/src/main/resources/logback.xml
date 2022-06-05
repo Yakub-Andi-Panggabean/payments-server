@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOG_DIR" value="/var/log/wallet-service"/>
+    <property name="APPLICATION_LOG_NAME" value="${LOG_DIR}/application"/>
+    <property name="APPLICATION_LOG_PATTERN"
+              value="[%d{ISO8601}][%thread][%-5level][%logger][%X{requestid}] ### {%msg%n}"/>
+    <property scope="context" name="app-code" value="payment_${project.version}"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                ${APPLICATION_LOG_PATTERN}
+            </Pattern>
+        </layout>
+    </appender>
+
+    <logger name="com.yakub.pay" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <root level="error">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

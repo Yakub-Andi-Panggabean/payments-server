@@ -9,6 +9,8 @@ import com.yakub.pay.payment.core.usecase.PaymentUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.web.context.WebApplicationContext;
 
 @Configuration
 public class BeanConfig {
@@ -23,8 +25,8 @@ public class BeanConfig {
         return new PaymentUseCase(paymentPersistence, orderPersistence);
     }
 
-    @Scope("request")
-    @Bean()
+    @Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.INTERFACES)
+    @Bean
     public PayContext context() {
         return new DefaultPayContext();
     }

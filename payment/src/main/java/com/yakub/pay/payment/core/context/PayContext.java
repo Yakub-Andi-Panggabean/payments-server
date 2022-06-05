@@ -7,6 +7,10 @@ import java.util.Optional;
 
 public interface PayContext {
 
+    String USER_KEY = "user";
+    String LOGGER_KEY = "logger";
+    String REQUEST_ID = "requestid";
+
     Optional<User> getUser();
 
     Optional<Object> get(String key);

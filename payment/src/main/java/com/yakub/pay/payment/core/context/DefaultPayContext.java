@@ -2,16 +2,13 @@ package com.yakub.pay.payment.core.context;
 
 import com.yakub.pay.payment.core.domain.User;
 import com.yakub.pay.payment.core.logger.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class DefaultPayContext implements PayContext {
-
-    public static final String USER_KEY = "user";
-    public static final String LOGGER_KEY = "logger";
-
     private Map<String, Object> map;
 
     public DefaultPayContext() {

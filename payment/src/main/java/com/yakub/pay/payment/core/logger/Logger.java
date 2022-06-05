@@ -10,6 +10,6 @@ public interface Logger {
 
     void error(String text, Object... params);
 
-    void error(String text, Exception ex, Object... params);
+    void error(String text, Exception ex);
 
 }
