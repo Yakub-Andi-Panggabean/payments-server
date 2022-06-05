@@ -70,7 +70,7 @@ This service has the following apis:
 
  
 ### Discovery Service
-  Will use Eureka from spring cloud stack for microservice discovery
+  Will use Eureka from spring cloud stack for microservice instances registry
 
 ### API Gateway
   Will use spring cloud gateway for routing the request to correct service
