@@ -9,10 +9,10 @@ import com.yakub.pay.payment.core.domain.User;
 import java.util.List;
 import java.util.Optional;
 
-public interface OrderService {
+public interface OrderPersistence {
     Optional<Order> order(Order request);
 
-    Optional<Order> get(User user, Id id);
+    Optional<Order> get(Id id);
 
     List<Order> get(User user);
 

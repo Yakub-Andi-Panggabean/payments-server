@@ -8,6 +8,14 @@ public class Id {
         this.value = value;
     }
 
+    public boolean match(Id id) {
+        return this.value.equals(id.value);
+    }
+
+    public boolean noneMatch(Id id) {
+        return !this.value.equals(id.value);
+    }
+
     public String getValue() {
         return value;
     }

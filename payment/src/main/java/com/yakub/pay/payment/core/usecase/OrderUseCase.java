@@ -2,7 +2,7 @@ package com.yakub.pay.payment.core.usecase;
 
 import com.yakub.pay.payment.core.assembler.OrderRequestAssembler;
 import com.yakub.pay.payment.core.assembler.OrderResponseAssembler;
-import com.yakub.pay.payment.core.bridge.OrderService;
+import com.yakub.pay.payment.core.bridge.OrderPersistence;
 import com.yakub.pay.payment.core.checker.Checker;
 import com.yakub.pay.payment.core.domain.Order;
 import com.yakub.pay.payment.core.domain.State;
@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 
 public class OrderUseCase {
 
-    private OrderService orderService;
+    private OrderPersistence orderPersistence;
 
-    public OrderUseCase(OrderService orderService) {
-        this.orderService = orderService;
+    public OrderUseCase(OrderPersistence orderPersistence) {
+        this.orderPersistence = orderPersistence;
     }
 
     public OrderResponse order(OrderRequest request) {
@@ -38,25 +38,20 @@ public class OrderUseCase {
     }
 
 
-    public OrderResponse get(User user, Id id) {
+    public OrderResponse get(Id id) {
 
-        Optional<OrderResponse> invalidUser = Validator.validate()
-                .apply(user)
-                .map(OrderResponseAssembler.error());
-
-        Optional<OrderResponse> invalidId = Validator.validate()
+        return Validator.validate()
                 .apply(id)
-                .map(OrderResponseAssembler.error());
-
-        return invalidUser.orElse(invalidId.orElse(orderService.get(user, id)
-                .map(OrderResponseAssembler.from())
-                .orElse(OrderResponseAssembler.errorMessage()
-                        .apply("order is not exist"))));
+                .map(OrderResponseAssembler.error())
+                .orElse(orderPersistence.get(id)
+                        .map(OrderResponseAssembler.from())
+                        .orElse(OrderResponseAssembler.errorMessage()
+                                .apply("order is not exist")));
 
     }
 
     public List<OrderResponse> get(User user) {
-        return orderService.get(user).stream()
+        return orderPersistence.get(user).stream()
                 .map(OrderResponseAssembler.from())
                 .collect(Collectors.toList());
     }
@@ -71,7 +66,7 @@ public class OrderUseCase {
                 .apply(id)
                 .map(OrderResponseAssembler.error());
 
-        return invalidUser.orElse(invalidId.orElse(orderService.get(user, id)
+        return invalidUser.orElse(invalidId.orElse(orderPersistence.get(id)
                 .map(this::tryCancel).get()));
     }
 
@@ -89,7 +84,7 @@ public class OrderUseCase {
     }
 
     private OrderResponse tryOrder(Order req) {
-        return Checker.check(req, o -> orderService.order(req)
+        return Checker.check(req, o -> orderPersistence.order(req)
                         .map(OrderResponseAssembler.from())
                         .orElseThrow(UnexpectedReturnException::new),
                 OrderResponseAssembler.error());
@@ -97,7 +92,7 @@ public class OrderUseCase {
 
     private OrderResponse tryCancel(Order order) {
         return Checker.check(order,
-                o -> orderService.order(o)
+                o -> orderPersistence.order(o)
                         .map(OrderResponseAssembler.from())
                         .orElseThrow(UnexpectedReturnException::new),
                 OrderResponseAssembler.error());
@@ -105,7 +100,7 @@ public class OrderUseCase {
 
     private OrderResponse tryUpdateState(Order order, State state) {
         return Checker.check(order,
-                o -> orderService.changeOrderState(o, state)
+                o -> orderPersistence.changeOrderState(o, state)
                         .map(OrderResponseAssembler.from())
                         .orElseThrow(UnexpectedReturnException::new)
                 , OrderResponseAssembler.error());
