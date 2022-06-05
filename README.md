@@ -1,6 +1,6 @@
 ## Payment System
 
-### High level diagram
+### High level design
 
 ![payment-system drawio (1)](https://user-images.githubusercontent.com/5902646/171908247-d2ad108f-a825-4cdf-b0b0-ea2a0b66e7ef.png)
 
