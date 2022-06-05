@@ -9,7 +9,10 @@
 1. Payment Service : this service capture payment events
 2. User Service: this service going to keep user (buyer,merchant) data
 3. Authentication Service: this service will manage user authentication and authorization
-4. Ledger Service: this service will capture fund movement (debit, credit)
+4. Ledger Service: this service will capture fund movement (debit, credit), this service
+   going to use double entry book keeping data model for modeling ledger database.
+   #### double entry book keeping data model
+  <img width="628" alt="Screen Shot 2022-06-05 at 22 09 49" src="https://user-images.githubusercontent.com/5902646/172057321-cee45360-e0e0-4786-8ebb-906c2949fd35.png">
 5. Wallet Service: this service will handle user balance
 6. Risk Service: this service going to handle risk check for each payment attempt
 7. Notification Service: this service going to handle any payment notification related things like push notification, sms, email
