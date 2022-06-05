@@ -59,15 +59,15 @@ public class PaymentUseCase {
                 );
     }
 
-    public RefundResponse refund(RefundRequest request) {
+    public RefundResponse refund(PayContext context, Id paymentId) {
         return null;
     }
 
-    public PaymentResponse get(User user, Id id) {
+    public PaymentResponse get(PayContext context, Id id) {
         return null;
     }
 
-    public List<PaymentResponse> get(User user) {
+    public List<PaymentResponse> get(PayContext context) {
         return null;
     }
 }

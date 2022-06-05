@@ -22,4 +22,10 @@ public class PaymentResponse {
     public PaymentResponse(PayException exception) {
         this(null, exception);
     }
+
+
+    public boolean isSuccess() {
+        return this.exception == null;
+    }
+
 }

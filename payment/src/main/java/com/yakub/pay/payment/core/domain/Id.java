@@ -31,4 +31,9 @@ public class Id {
     public static Id merchant(String value) {
         return new Id(value);
     }
+
+    @Override
+    public String toString() {
+        return this.value;
+    }
 }

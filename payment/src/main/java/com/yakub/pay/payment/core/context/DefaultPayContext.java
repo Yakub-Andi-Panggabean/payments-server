@@ -5,6 +5,7 @@ import com.yakub.pay.payment.core.logger.Logger;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class DefaultPayContext implements PayContext {
 
@@ -13,8 +14,8 @@ public class DefaultPayContext implements PayContext {
 
     private Map<String, Object> map;
 
-    public DefaultPayContext(Map<String, Object> map) {
-        this.map = map;
+    public DefaultPayContext() {
+        this.map = new ConcurrentHashMap<>();
     }
 
     @Override
